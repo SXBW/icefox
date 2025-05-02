@@ -23,6 +23,22 @@ if (!defined('__TYPECHO_ROOT_DIR__'))
             @click="darkMode=false" x-show="darkMode==true" />
 
     </div>
+ 
+    <div
+        class="w-[36px] h-[36px] cursor-pointer rounded-3xl bg-[#E8E9EC] hover:bg-[#DDDDDD] flex justify-center items-center mb-2">
+       <img width="24" height="24"
+                        src="<?php $this->options->themeUrl('assets/svgs/header.friend.dark.svg'); ?>"
+                        class="cursor-pointer <?php echo $this->options->defaultThemeColor == 'yes' ? "hidden" : ""; ?> "
+                        @click="showFriendModal()" id="friend-light" />
+                    <img width="24" height="24"
+                        src="<?php $this->options->themeUrl('assets/svgs/header.friend.dark.svg'); ?>"
+                        class="cursor-pointer <?php echo $this->options->defaultThemeColor == 'yes' ? "" : "hidden"; ?>"
+                        @click="showFriendModal()" id="friend-dark" />
+                 </div>
+    
+
+
+    
     <div class="w-[36px] h-[36px] cursor-pointer rounded-3xl bg-[#E8E9EC] hover:bg-[#DDDDDD] hidden"
         onclick="scrollToTop(); return false;" id="go-top">
         <div class="w-full h-full flex justify-center items-center">
