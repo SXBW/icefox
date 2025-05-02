@@ -61,16 +61,18 @@ if (!defined('__TYPECHO_ROOT_DIR__'))
                 </span>
             </div>
             <div class="flex items-center">
-                <span class="h-full px-5 flex items-center">
-                    <img width="24" height="24"
-                        src="<?php $this->options->themeUrl('assets/svgs/header.friend.svg'); ?>"
-                        class="cursor-pointer <?php echo $this->options->defaultThemeColor == 'yes' ? "hidden" : ""; ?> "
-                        @click="showFriendModal()" id="friend-light" />
-                    <img width="24" height="24"
-                        src="<?php $this->options->themeUrl('assets/svgs/header.friend.dark.svg'); ?>"
-                        class="cursor-pointer <?php echo $this->options->defaultThemeColor == 'yes' ? "" : "hidden"; ?>"
-                        @click="showFriendModal()" id="friend-dark" />
-                </span>
+
+  <a href="/admin">
+    <span class="h-full px-5 flex items-center">
+        <img width="24" height="24" src="/login.svg" class="cursor-pointer " @click="showylModal()" id="sx-light">
+        <img width="24" height="24" src="/login1.svg" class="cursor-pointer hidden" @click="showylModal()" id="sx-dark">
+    </span>
+    </a>
+
+
+
+                
+              
                 <?php if ($this->user->hasLogin()): ?>
                     <span class="h-full px-5 flex items-center">
                         <a href="<?php echo $this->options->publishPageUrl; ?>">
