@@ -134,6 +134,9 @@ window.onload = async () => {
         let topFixedHeight = $("#top-fixed").height();
         if ($(this).scrollTop() + topFixedHeight > headerHeight) {
             // 顶部滑动下来
+            $("#sx-light").addClass('hidden');
+            $("#sx-dark").removeClass('hidden');
+            
             $('#top-fixed').addClass('bg-[#f0f0f0]');
             $('#top-fixed').addClass('dark:bg-black/30');
             $('#top-fixed').addClass('backdrop-blur-md');
@@ -151,6 +154,10 @@ window.onload = async () => {
             $("#go-top").show();
         } else {
             // 顶部未滑动下来
+            $("#sx-light").removeClass('hidden');
+            $("#sx-dark").addClass('hidden');
+
+            
             $('#top-fixed').removeClass('bg-[#f0f0f0]');
             $('#top-fixed').removeClass('dark:bg-black/30');
             $('#top-fixed').removeClass('backdrop-blur-md');
