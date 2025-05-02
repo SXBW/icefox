@@ -64,8 +64,8 @@ if (!defined('__TYPECHO_ROOT_DIR__'))
 
   <a href="/admin">
     <span class="h-full px-5 flex items-center">
-        <img width="24" height="24" src="/login.svg" class="cursor-pointer " @click="showylModal()" id="sx-light">
-        <img width="24" height="24" src="/login1.svg" class="cursor-pointer hidden" @click="showylModal()" id="sx-dark">
+        <img width="24" height="24" src="assets/svgs/login.svg" class="cursor-pointer " @click="showylModal()" id="sx-light">
+        <img width="24" height="24" src="assets/svgs/login1.svg" class="cursor-pointer hidden" @click="showylModal()" id="sx-dark">
     </span>
     </a>
 
