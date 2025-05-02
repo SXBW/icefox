@@ -220,6 +220,14 @@ function addAgree($self)
 /**
  * 根据用户id获取用户头像地址
  */
+
+
+
+
+
+
+
+
 function getUserAvatar($authorId)
 {
     $db = Typecho_Db::get();
@@ -228,16 +236,50 @@ function getUserAvatar($authorId)
     $user = $db->fetchRow($db->select('table.users.mail')->from('table.users')->where('uid = ?', $authorId)->limit(1));
 
     $mail = $user['mail'];
+    
+    
+       $reg = "/^\d{5,11}@[qQ][Qq]\.(com)$/";
+        if (preg_match($reg, $mail)) {
+            $img    = explode("@", $mail);
+            $gravatarUrl = "//q2.qlogo.cn/headimg_dl?dst_uin={$img[0]}&spec=100";
+        } else {
+            if (defined('__TYPECHO_GRAVATAR_PREFIX__')) {
+                $gravatarUrl = __TYPECHO_GRAVATAR_PREFIX__;
+            } else {
+                $gravatarUrl = $isSecure ? 'https://gravatar.loli.net' : 'https://gravatar.loli.net';
+                $gravatarUrl .= '/avatar/';
+            }
+ 
+  if (!empty($mail)) {
+                $gravatarUrl .= md5(strtolower(trim($mail)));
+            }
+            $gravatarUrl .= '?s=' . $size;
+            $gravatarUrl .= '&amp;r=' . $rating;
+            $gravatarUrl .= '&amp;d=' . $default;
+        }
+ 
 
-    $avatarSource = "https://cravatar.cn/avatar/";
-    if (!empty($options->avatarSource)) {
-        $avatarSource = $options->avatarSource;
-    }
-
-    $gravatarUrl = $avatarSource . md5(strtolower(trim($mail))) . "?s=64&d=identicon";
 
     return $gravatarUrl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 获取音乐地址
